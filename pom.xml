@@ -35,6 +35,7 @@
     </scm>
 
     <properties>
+        <apt.phase>process-sources</apt.phase>
         <apt.version>1.0.0-SNAPSHOT</apt.version>
         <mule.version>4.1.0-SNAPSHOT</mule.version>
         <mule.weave.version>2.1.0-SNAPSHOT</mule.weave.version>
@@ -246,7 +247,7 @@
                         <goals>
                             <goal>process</goal>
                         </goals>
-                        <phase>process-sources</phase>
+                        <phase>${apt.phase}</phase>
                         <configuration>
                             <outputDirectory>target/classes/META-INF</outputDirectory>
                             <processors>
