@@ -370,7 +370,7 @@
             <plugin>
                 <groupId>org.bsc.maven</groupId>
                 <artifactId>maven-processor-plugin</artifactId>
-                <version>2.2.4</version>
+                <version>3.3.3</version>
                 <executions>
                     <execution>
                         <id>process</id>
@@ -379,6 +379,10 @@
                         </goals>
                         <phase>${apt.phase}</phase>
                         <configuration>
+                            <fork>true</fork>
+                            <releaseVersion>9</releaseVersion>
+                            <addCompileSourceRoots>true</addCompileSourceRoots>
+                            <compilerArguments>--add-modules=java.xml.bind</compilerArguments>
                             <systemProperties>
                                 <exportedPackagesValidator.skip>${exportedPackagesValidator.skip}</exportedPackagesValidator.skip>
                                 <exportedPackagesValidator.strictValidation>${exportedPackagesValidator.strictValidation}</exportedPackagesValidator.strictValidation>
@@ -408,6 +412,21 @@
                         <groupId>org.mule.runtime</groupId>
                         <artifactId>mule-extension-ast-loader</artifactId>
                         <version>${mule.extensions.ast.loader.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.mule.runtime</groupId>
+                        <artifactId>mule-module-extensions-support</artifactId>
+                        <version>${mule.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.mule.runtime</groupId>
+                        <artifactId>mule-module-extensions-spring-support</artifactId>
+                        <version>${mule.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.mule.runtime</groupId>
+                        <artifactId>mule-metadata-model-java-ast</artifactId>
+                        <version>${mule.metadata.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
